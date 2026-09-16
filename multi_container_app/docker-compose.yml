@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  frontend_server:
+    image: nginx:alpine
+    ports:
+      - "8081:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
+    networks:
+      - app-network
+
+  cache_db:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
