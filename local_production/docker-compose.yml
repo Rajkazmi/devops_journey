@@ -1,0 +1,20 @@
+services:
+  # Service 1: The UI Layer
+  my_frontend:
+    build: ./frontend
+    ports:
+      - "8085:80"
+    networks:
+      - internal_secure_net
+
+  # Service 2: The Compute Engine Layer
+  my_backend:
+    build: ./backend
+    env_file:
+      - .env
+    networks:
+      - internal_secure_net
+
+networks:
+  internal_secure_net:
+    driver: bridge

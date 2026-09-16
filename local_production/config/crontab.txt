@@ -1,0 +1,1 @@
+0 2 * * * /bin/bash /home/admin_raj/local_production/config/system_setup.sh >> /home/admin_raj/local_production/config/maintenance.log 2>&1
